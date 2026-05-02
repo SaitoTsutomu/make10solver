@@ -4,7 +4,6 @@ authors = [
 ]
 classifiers = [
   "Development Status :: 1 - Planning",
-  "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python",
   "Topic :: Software Development",
   "Topic :: Scientific/Engineering",
@@ -13,7 +12,8 @@ dependencies = [
   "fire>=0.7.1",
 ]
 description = "Find arithmetic expressions that make 10 from 4 numbers"
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
+license-files = ["LICENSE*"]
 name = "make10solver"
 readme = "README.md"
 requires-python = ">=3.14"
