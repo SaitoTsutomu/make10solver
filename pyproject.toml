@@ -1,0 +1,79 @@
+[project]
+authors = [
+  {name = "Saito Tsutomu", email = "tsutomu.saito@moai-lab.jp"},
+]
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python",
+  "Topic :: Software Development",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = [
+  "fire>=0.7.1",
+]
+description = "Find arithmetic expressions that make 10 from 4 numbers"
+license = {text = "Apache-2.0"}
+name = "make10solver"
+readme = "README.md"
+requires-python = ">=3.14"
+version = "0.1.0"
+
+[project.urls]
+homepage = "https://github.com/SaitoTsutomu/make10solver"
+
+[project.scripts]
+make10 = "make10solver.solver:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=9.0.3",
+]
+
+[tool.taskipy.tasks]
+license = "uv run -w pip-licenses pip-licenses"
+lint = "pyrefly check src && ruff check src"
+pip-audit = "uv run -w pip-audit pip-audit"
+test = "uv run pytest --disable-warnings"
+
+[tool.uv]
+exclude-newer = "3 days"
+
+[[tool.uv.index]]
+default = true
+url = "https://pypi.flatt.tech/simple/"
+
+[tool.pytest.ini_options]
+norecursedirs = ["nbs"]
+pythonpath = ["src"]
+
+[tool.pyrefly.errors]
+bad-argument-type = false
+
+[tool.ruff]
+src = ["src"]
+
+[tool.ruff.lint]
+ignore = [
+  "ANN401",
+  "CPY",
+  "D10",
+  "D203",
+  "D213",
+  "D400",
+  "D415",
+  "DOC",
+  "E501",
+]
+preview = true
+select = ["ALL"]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"*/tests/*.py" = ["S101"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[build-system]
+build-backend = "uv_build"
+requires = ["uv_build>=0.11.6,<0.12.0"]
