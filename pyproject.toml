@@ -17,7 +17,7 @@ license-files = ["LICENSE*"]
 name = "make10solver"
 readme = "README.md"
 requires-python = ">=3.14"
-version = "0.1.0"
+version = "0.2.0"
 
 [project.urls]
 homepage = "https://github.com/SaitoTsutomu/make10solver"
