@@ -33,7 +33,6 @@ dev = [
 [tool.taskipy.tasks]
 license = "uv run -w pip-licenses pip-licenses"
 lint = "pyrefly check src && ruff check src"
-pip-audit = "uv run -w pip-audit pip-audit"
 test = "uv run pytest --disable-warnings"
 
 [tool.uv]
