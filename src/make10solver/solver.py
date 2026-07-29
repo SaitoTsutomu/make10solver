@@ -22,13 +22,13 @@ def solve_make10(num1: int, num2: int, num3: int, num4: int, *, target: int = 10
         ["n", "n", "n", "n", "o", "o", "o"],
     ]
 
-    for nums in set(permutations([num1, num2, num3, num4])):  # noqa: PLR1702
+    for nums in set(permutations([num1, num2, num3, num4])):  # ruff: ignore[too-many-nested-blocks]
         for op_keys in product(ops.keys(), repeat=3):
             for struct in structures:
                 stack = []
                 n_idx, o_idx = 0, 0
 
-                try:
+                try:  # ruff: ignore[too-many-statements-in-try-clause]
                     for s in struct:
                         if s == "n":
                             val = float(nums[n_idx])
